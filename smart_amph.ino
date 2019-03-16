@@ -97,6 +97,9 @@ void loop() {
 
 
     loudness = _read(LOUDNESS_SENSOR);
+    if (loudness > 255) {
+        // TODO: Analog output
+    }
 
 
     
