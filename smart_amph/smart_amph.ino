@@ -27,6 +27,8 @@ dht DHT;
 #define TIME_20MIN_MS 1200000
 #define TIME_QUANTUM 500
 #define WIDTH_LIMIT 120 //in cm
+#define ROW_SEATS 9
+
 // Sensor readings as global variables
 float luminocity_inside = 0; // in lux
 float luminocity_outside = 0; // in lux
@@ -137,6 +139,18 @@ void loop() {
     Serial.print("There are ");
     Serial.print(persons);
     Serial.println(" persons inside the room right now");
+
+
+
+    if (!(entree && exitee)){
+      if (persons % ROW_SEATS == 1 && entree) {
+          Serial.print("Enable row ");
+          Serial.println(persons/ROW_SEATS);
+      } else if (persons % ROW_SEATS == 0 && exitee) {
+          Serial.print("Disable ");
+          Serial.println((persons+1)/ROW_SEATS);
+      }
+    }
     // do all these only if there are people inside, no reason to do anything otherwise
     if (persons > 0){
         quantums_empty = 0;
