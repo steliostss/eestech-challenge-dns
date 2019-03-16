@@ -12,7 +12,7 @@ dht DHT;
 #define LIGHTSENSORPIN A5 //Ambient light sensor reading 
 
 
-#define ANALOG_IN_SOUND  A0 // X-axis-signal
+#define ANALOG_IN_SOUND  A0 
 
 int TrigPin = 12;
 int EchoPin = 11;
