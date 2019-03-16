@@ -13,8 +13,6 @@ dht DHT;
 
 
 #define ANALOG_IN_SOUND  A0 // X-axis-signal
-#define DIGITAL_IN_SOUND  3 // Button
-
 
 int TrigPin = 12;
 int EchoPin = 11;
@@ -26,7 +24,6 @@ void setup() {
   Serial.begin(9600);
   pinMode(LIGHTSENSORPIN,  INPUT);  
   pinMode (ANALOG_IN_SOUND, INPUT);
-  pinMode (DIGITAL_IN_SOUND, INPUT);
   pinMode(TrigPin,OUTPUT);
   pinMode(EchoPin, INPUT);
 }
@@ -47,14 +44,9 @@ void loop() {
 delay(100);
   //sound
 
-  float Analog;
-  int Digital;
-    
-  // Current value will be read and converted to voltage
+  float Analog;    
   Analog = analogRead (ANALOG_IN_SOUND); 
-  Digital = digitalRead (DIGITAL_IN_SOUND);
     
-  //... and outputted here
   Serial.print ("Sound measured in the room is: "); Serial.println (Analog);  
  
 delay(100);
